@@ -1,0 +1,34 @@
+{
+	"manifest_version": 3,
+	"name": "Odoo PDF Report Link Generator",
+	"version": "1.0",
+	"description": "This extension is useful for Odoo developers working on both base and custom reports. It allows developers to preview report changes without printing or upgrading the module each time minor adjustments are made to the report template XML file. Developers need to run the server with --dev=all only once to use this extension.",
+	"permissions": ["storage", "activeTab", "scripting"],
+	"author": "Jr. Odoo Developer, Mr. Tanmay Kathiriya",
+	"action": {
+	  "default_popup": "popup.html",
+	  "default_icon": {
+		"16": "icons/icon16.png",
+		"48": "icons/icon48.png",
+		"128": "icons/icon128.png"
+	  }
+	},
+	"icons": {
+	  "16": "icons/icon16.png",
+	  "48": "icons/icon48.png",
+	  "128": "icons/icon128.png"
+	},
+	"background": {
+	  "service_worker": "background.js"
+	},
+	"commands": {
+	  "_execute_action": {
+		"suggested_key": {
+		  "default": "Ctrl+Shift+Y",
+		  "mac": "Command+Shift+Y"
+		},
+		"description": "Open the Odoo PDF Report Link Generator"
+	  }
+	}
+  }
+  
