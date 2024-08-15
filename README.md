@@ -1,46 +1,53 @@
-# oxdron_odoo_pdf_report_link_generator_extension
-# Odoo PDF Report Link Generator
+# Odoo Report Linker
 
-This extension is useful for Odoo developers working on both base and custom reports. It allows developers to preview report changes without printing or upgrading the module each time minor adjustments are made to the report template XML file. Developers need to run the server with `--dev=all` only once to use this extension.
+## Overview
+
+The **Odoo Report Linker** extension is designed to streamline the workflow of Odoo developers by allowing them to generate and preview PDF report links directly from their browser. This tool eliminates the need for constant module upgrades or downloads, making it easier to test and view report changes.
 
 ## Features
 
-- Generate a link to print PDF reports in Odoo without downloading.
-- Easy to use interface with fields for localhost port, module name, report action ID, and record ID.
-- Open the generated link directly in a new tab.
+- **Generate PDF Report Links**: Quickly generate links to view PDF reports without downloading them.
+- **Localhost & Live Server Support**: Toggle between localhost and live server settings to match your development environment.
+- **Easy Preview**: Open the generated link in a new tab for immediate preview.
 
 ## Installation
 
-### Tutorial for Chrome
+### For Chrome Users
 
 1. **Clone or Download**:
-   - Go to the extension's repository.
-   - Click "Clone or download" and select "Download zip".
-2. **Unpack Archive**:
-   - Unpack the downloaded archive.
-3. **Open Chrome Extensions Page**:
-   - Open Chrome browser and navigate to `chrome://extensions/`.
+   - Visit the extension's repository.
+   - Click "Clone or download" and choose "Download zip".
+
+2. **Unpack the Archive**:
+   - Extract the contents of the downloaded zip file.
+
+3. **Access Chrome Extensions**:
+   - Open Chrome and navigate to `chrome://extensions/`.
+
 4. **Enable Developer Mode**:
-   - In the top right corner, toggle "Developer Mode".
-5. **Load Unpacked Extension**:
-   - Click "Load unpacked" and select the folder where the extension was unpacked (e.g., `odoo_extension-master`).
-6. **Extension Icon**:
-   - An "3D Notes" icon will appear in the top right corner of Chrome.
+   - Toggle "Developer Mode" in the top right corner.
 
-### Usage
+5. **Load the Unpacked Extension**:
+   - Click "Load unpacked" and select the folder where you extracted the extension files.
 
-1. **Navigate to Odoo**:
-   - Go to your Odoo URL.
-2. **Open Extension**:
-   - Click on the extension button.
-3. **Fill Form**:
-   - Fill in the form with the required details.
-4. **Generate and Open Link**:
-   - Click "Generate Report and Open Link".
-   - Your attendance report will be opened in a new tab.
+6. **Verify Installation**:
+   - The Odoo Report Linker icon will appear in the top right corner of Chrome.
 
-### Shortcut Key
+## Usage
 
-- You can also open the extension using the shortcut key `Ctrl+Shift+Y` (Windows) or `Command+Shift+Y` (Mac).
+1. **Open the Extension**:
+   - Click the Odoo Report Linker icon in the Chrome toolbar.
 
-### Thank you for using the Odoo PDF Report Link Generator extension. We hope it makes your development process more efficient!
+2. **Fill in the Details**:
+   - Enter the required information including module name, report action ID, and record ID.
+
+3. **Generate and Open the Report Link**:
+   - Click "Generate Report and Open Link" to view the report in a new tab.
+
+### Keyboard Shortcut
+
+- Use `Ctrl+Shift+Y` (Windows) or `Command+Shift+Y` (Mac) to quickly open the extension.
+
+## Acknowledgments
+
+Thank you for using the Odoo Report Linker. We hope it enhances your Odoo development experience by simplifying the process of testing and previewing PDF reports.

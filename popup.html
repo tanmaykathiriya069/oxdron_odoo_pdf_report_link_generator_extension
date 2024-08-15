@@ -1,35 +1,55 @@
 <!doctype html>
 <html>
   <head>
-    <title>Generate Link for printing PDF report without downloading in Odoo</title>
+    <title>Generate Link for Printing PDF Report without Downloading in Odoo</title>
   </head>
   <body style="font-family: Arial, sans-serif; padding: 20px; width: 350px; background-color: #714B67;">
     <div class="container" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #e2e2e2;">
-      <h1 class="title" style="color: #714B67; text-align: center; margin-bottom: 20px;">Enter the required details</h1>
-      <div class="field" style="margin-bottom: 8px;">
-        <label for="localhost_port" style="display: block; margin-bottom: 5px; color: #714B67;"><h3>Localhost Port Number</h3></label>
-        <input type="text" id="localhost_port" name="localhost_port" placeholder="8069" style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;" required>
+      <h1 class="title" style="text-align: center;">Odoo Report Linker</h1>
+      <h3 style="text-align: center;">Select Your Environment</h3>
+
+      <!-- Selection buttons for Localhost and Live Server -->
+      <div style="text-align: center; margin-bottom: 10px;">
+        <button id="btnLocalhost" class="btn-toggle" style="background-color: #714B67; color: white; padding: 6px 16px; border: none; border-radius: 5px; cursor: pointer; width: 100px; margin-right: 10px;">Localhost</button>
+        <button id="btnLiveServer" class="btn-toggle" style="background-color: #ccc; color: #714B67; padding: 6px 16px; border: none; border-radius: 5px; cursor: pointer; width: 100px;">Live Server</button>
       </div>
-      <div class="field" style="margin-bottom: 8px;">
-        <label for="module_name" style="display: block; margin-bottom: 5px; color: #714B67;"><h3>Module Name</h3></label>
-        <input type="text" id="module_name" name="module_name" placeholder="xyz_module_custom" style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;" required>
+
+      <!-- Localhost Port Field -->
+      <div id="localhost_field" class="field" style="margin-bottom: 4px;">
+        <label for="localhost_port" style="display: block; margin-bottom: 3px; color: #714B67;"><h3>Localhost Port Number</h3></label>
+        <input type="text" id="localhost_port" name="localhost_port" placeholder="e.g., 8069" style="width: 100%; padding: 8px; margin-bottom: 5px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
       </div>
-      <div class="field" style="margin-bottom: 8px;">
-        <label for="report_action_id" style="display: block; margin-bottom: 5px; color: #714B67;"><h3>Report Action ID</h3></label>
-        <input type="text" id="report_action_id" name="report_action_id" placeholder="report_xyz_model_action" style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;" required>
+
+      <!-- Live Server URL Field -->
+      <div id="live_field" class="field" style="display: none;">
+        <label for="live_server_url" style="display: block; margin-bottom: 3px; color: #714B67;"><h3>Live Server URL</h3></label>
+        <input type="text" id="live_server_url" name="live_server_url" placeholder="e.g., https://example.com" style="width: 100%; padding: 8px; margin-bottom: 5px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
       </div>
-      <div class="field" style="margin-bottom: 8px;">
-        <label for="record_id" style="display: block; margin-bottom: 5px; color: #714B67;"><h3>Record Id</h3></label>
-        <input type="text" id="record_id" name="record_id" placeholder="1" style="width: 100%; padding: 8px; margin-bottom: 20px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;" required>
+
+      <!-- Common Fields -->
+      <div class="field" style="margin-bottom: 4px;">
+        <label for="module_name" style="display: block; margin-bottom: 3px; color: #714B67;"><h3>Module Name</h3></label>
+        <input type="text" id="module_name" name="module_name" placeholder="e.g., my_module" style="width: 100%; padding: 8px; margin-bottom: 5px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;" required>
       </div>
-      <button id="_printReportLink" class="btn-primary" style="background-color: #714B67; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px;">Generate Report and Open Link</button>
-      <div id="generatedLink" style="margin-top: 20px; display: none;">
+      <div class="field" style="margin-bottom: 4px;">
+        <label for="report_action_id" style="display: block; margin-bottom: 3px; color: #714B67;"><h3>Report Action ID</h3></label>
+        <input type="text" id="report_action_id" name="report_action_id" placeholder="e.g., report_action" style="width: 100%; padding: 8px; margin-bottom: 5px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;" required>
+      </div>
+      <div class="field" style="margin-bottom: 4px;">
+        <label for="record_id" style="display: block; margin-bottom: 3px; color: #714B67;"><h3>Record ID</h3></label>
+        <input type="text" id="record_id" name="record_id" placeholder="e.g., 123" style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;" required>
+      </div>
+
+      <button id="_printReportLink" class="btn-primary" style="background-color: #714B67; color: white; padding: 6px 16px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px;">Generate Report Link</button>
+
+      <div id="generatedLink" style="margin-top: 15px; display: none;">
         <label for="report_link" style="display: block; margin-bottom: 5px;">Generated Link</label>
         <a id="report_link" href="#" target="_blank" style="word-wrap: break-word;"></a>
       </div>
-      <div id="error_message" style="color: red; display: none; margin-top: 20px; text-align: center; font-size: 16px;">Please fill details in all the fields.</div>
+
+      <div id="error_message" style="color: red; display: none; margin-top: 15px; text-align: center; font-size: 15px;">Please fill details in all the fields.</div>
     </div>
-    
+
     <script src="popup.js"></script>
   </body>
 </html>
