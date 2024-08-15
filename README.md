@@ -41,6 +41,6 @@ This extension is useful for Odoo developers working on both base and custom rep
 
 ### Shortcut Key
 
-- You can also open the extension using the shortcut key `Ctrl+Shift+Y` (Windows) or `Command+Shift+Y` (Mac).
+- You can also open the extension using the shortcut key `Ctrl+Shift+Y` (Windows/Linux) or `Command+Shift+Y` (Mac).
 
 ### Thank you for using the Odoo PDF Report Link Generator extension. We hope it makes your development process more efficient!
