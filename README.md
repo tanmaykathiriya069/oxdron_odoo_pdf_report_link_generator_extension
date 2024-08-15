@@ -46,7 +46,7 @@ The **Odoo Report Linker** extension is designed to streamline the workflow of O
 
 ### Keyboard Shortcut
 
-- Use `Ctrl+Shift+Y` (Windows) or `Command+Shift+Y` (Mac) to quickly open the extension.
+- Use `Ctrl+Shift+Y` (Windows/Linux) or `Command+Shift+Y` (Mac) to quickly open the extension.
 
 ## Acknowledgments
 
